@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import Questions from './pages/Questions'
 import Question from './pages/Question'
 import Leaderboard from './pages/LeaderBoard'
+import NewQuestion from './pages/NewQuestion'
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,15 @@ const router = createBrowserRouter([
         <Nav />
         <Question />
       </>
+  },
+  {
+    path: '/questions/new',
+    element: 
+      <>
+        <Nav />
+        <NewQuestion />
+      </>
+  
   },
   {
     path: '/leaderboard',

@@ -19,8 +19,13 @@ export default function Question() {
         updateAnswer(id, selectedChoice);
     }
 
+    const addNew = () => {
+        
+    };
+
     return (
-        <> 
+        <>
+            <button onClick={addNew}>Nouvelle question</button>
             <ul>
                 {question.answer ? <li key={uuidv4()}>{question.answer}</li> : null}
                 {question.question.map((choice, index) => {
