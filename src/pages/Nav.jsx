@@ -5,7 +5,7 @@ export default function Nav() {
         <nav>
             <ul>
                 <li><NavLink to="/">Home</NavLink></li>
-                <li><NavLink to="/questions">Questions</NavLink></li>
+                <li><NavLink to="/add">New Question</NavLink></li>
                 <li><NavLink to="/leaderboard">Leaderboard</NavLink></li>
             </ul>
         </nav>

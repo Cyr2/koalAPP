@@ -1,13 +1,16 @@
 import './App.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { useState } from 'react';
 
 // Import Pages
 import Nav from './pages/Nav'
 import Home from './pages/Home'
-import Questions from './pages/Questions'
 import Question from './pages/Question'
 import Leaderboard from './pages/LeaderBoard'
 import NewQuestion from './pages/NewQuestion'
+
+// Import Context
+import AllQuestionsContext from './contexts/Context';
 
 const router = createBrowserRouter([
   {
@@ -19,14 +22,6 @@ const router = createBrowserRouter([
       </>
   },
   {
-    path: '/questions',
-    element: 
-      <>
-        <Nav />
-        <Questions />
-      </>
-  },
-  {
     path: '/questions/:id',
     element: 
       <>
@@ -35,7 +30,7 @@ const router = createBrowserRouter([
       </>
   },
   {
-    path: '/questions/new',
+    path: '/add',
     element: 
       <>
         <Nav />
@@ -54,7 +49,13 @@ const router = createBrowserRouter([
 ])
 
 function App() {
-  return <RouterProvider router={router} />
+  const [allQuestions, setAllQuestions] = useState([]);
+
+  return (
+    <AllQuestionsContext.Provider value={{ allQuestions, setAllQuestions }}>
+      <RouterProvider router={router} />
+    </AllQuestionsContext.Provider>
+  );
 }
 
-export default App
+export default App;
