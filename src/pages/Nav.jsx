@@ -5,13 +5,13 @@ export default function Nav() {
     return (
         <nav className='nav'>
             <ul>
-                <li><NavLink to="/">Home</NavLink></li>
-                <li><NavLink to="/add">New Question</NavLink></li>
-                <li><NavLink to="/leaderboard">Leader Board</NavLink></li>
+                <NavLink to="/"><li>Accueil</li></NavLink>
+                <NavLink to="/add"><li>Nouvelle question</li></NavLink>
+                <NavLink to="/leaderboard"><li>Leader Board</li></NavLink>
             </ul>
             <ul className='ulUser'>
-                <li>hello, user</li>
-                <li><a href="">logout</a></li>
+                <li>bonjour, utilisateur</li>
+                <NavLink to="/logout"><li>Déconnécter</li></NavLink>
             </ul>
         </nav>
     )

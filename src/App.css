@@ -11,3 +11,10 @@
   margin : 0;
   padding: 0;
 }
+.tableQuestion li{
+  font-weight: 500;
+  font-size: large;
+  border : solid black 1px;
+  padding: 3px;
+  margin : 5px 0;
+}
