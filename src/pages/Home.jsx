@@ -26,8 +26,8 @@ export default function Home() {
 
     return (
         <AllQuestionsContext.Provider value={context}>
-            <h1>Home</h1>
-            <ul>
+            <h1>Accueil</h1>
+            <ul className='tableQuestion'>
                 {context.allQuestions.map((question, index) => {
                     const choices = question.question;
                     let choicesString = '';
