@@ -11,7 +11,7 @@ export default function Nav() {
             </ul>
             <ul className='ulUser'>
                 <li>bonjour, utilisateur</li>
-                <NavLink to="/logout"><li>Déconnécter</li></NavLink>
+                <NavLink to="/logout"><li>Déconnecter</li></NavLink>
             </ul>
         </nav>
     )

@@ -1,6 +1,5 @@
 import './App.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { useState } from 'react';
 
 // Import Pages
 import Nav from './pages/Nav'
@@ -9,8 +8,6 @@ import Question from './pages/Question'
 import Leaderboard from './pages/LeaderBoard'
 import NewQuestion from './pages/NewQuestion'
 
-// Import Context
-import AllQuestionsContext from './contexts/Context';
 
 const router = createBrowserRouter([
   {
@@ -45,16 +42,19 @@ const router = createBrowserRouter([
         <Nav />
         <Leaderboard />
       </>
+  },
+  {
+    path: '/logout',
+    element: 
+      <>
+        <Nav />
+      </>
   }
 ])
 
 function App() {
-  const [allQuestions, setAllQuestions] = useState([]);
-
   return (
-    <AllQuestionsContext.Provider value={{ allQuestions, setAllQuestions }}>
-      <RouterProvider router={router} />
-    </AllQuestionsContext.Provider>
+    <RouterProvider router={router} />
   );
 }
 
