@@ -8,7 +8,7 @@ export function useFetch(){
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:bTJXwgaR/answer');
+                const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:bTJXwgaR/question');
                 const data = await response.json();
                 setQuestions(data);
                 setIsLoading(false);

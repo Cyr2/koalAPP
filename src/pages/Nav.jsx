@@ -10,7 +10,7 @@ export default function Nav() {
                 <NavLink to="/leaderboard"><li>Leader Board</li></NavLink>
             </ul>
             <ul className='ulUser'>
-                <li>bonjour, utilisateur</li>
+                <li>Bonjour, utilisateur</li>
                 <NavLink to="/logout"><li>Déconnecter</li></NavLink>
             </ul>
         </nav>

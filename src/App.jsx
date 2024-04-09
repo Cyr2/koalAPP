@@ -19,7 +19,7 @@ const router = createBrowserRouter([
       </>
   },
   {
-    path: '/questions/:id',
+    path: '/question/:id',
     element: 
       <>
         <Nav />
