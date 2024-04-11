@@ -25,7 +25,34 @@ function useFetch(q_id){
 
 
 export default function Question() {
-    const question = useFetch();
+    const url = window.location.pathname.split('/')[2];
+    const [data, isLoaded] = useFetch(url);
+    const [renderList, setRenderList] = useState(<div>Loading...</div>);
+
+    useEffect(() => {
+        if (!isLoaded) {
+            setRenderList(
+                <>
+                    <h2>{data.author.name} demande</h2>
+                    <h4>Tu préfères</h4>
+                    
+                    <form action="" method='post'>
+                        <ul>
+                            {data.choice.map((choice) => (
+                                <li key={choice}>
+                                        <input type='radio' id={choice} value={choice} name={data.id}></input>
+                                        <label htmlFor={choice}>{choice.charAt(0).toUpperCase() + choice.slice(1)}</label>
+                                </li>
+                            ))}
+                        </ul>
+                        <input type='submit' value='Envoyez'></input>
+                    </form>
+                </>
+            );
+        }
+    }, [isLoaded]);
+
+    return renderList;
 }
 
 

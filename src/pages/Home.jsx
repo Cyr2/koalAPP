@@ -15,7 +15,11 @@ export default function Home() {
                     <ul className='tableQuestion'>
                         {questions.map((question) => (
                             <li key={question.id}>
-                                <Link to={`/question/${question.id}`}>{getChoice(question.choice)}</Link>
+                                <>
+                                    <h3>{question.author.name.charAt(0).toUpperCase() + question.author.name.slice(1)} demande</h3>
+                                    <p>{getChoice(question.choice)}</p>
+                                    <Link to={`/question/${question.id}`}><button>Voir Sondage</button></Link>
+                                </>
                             </li>
                         ))}
                     </ul>
@@ -25,16 +29,15 @@ export default function Home() {
     }, [isLoaded]);
 
     function getChoice(question){
-        let title = `Tu préfères ? ${question[0].charAt(0).toUpperCase() + question[0].slice(1)}`
+        let title = `Tu préfères ${question[0].charAt(0).toUpperCase() + question[0].slice(1)}`
         for(let i = 1; i<question.length; i++){
             if(i === question.length - 1){
-                title += ` ou ${question[i].charAt(0).toUpperCase() + question[i].slice(1)}`
+                title += ` ou ${question[i].charAt(0).toUpperCase() + question[i].slice(1)} ?`
             } else {
                 title += `, ${question[i].charAt(0).toUpperCase() + question[i].slice(1)}`
             }
         }
         return title;
     }
-
     return renderList;
 }
