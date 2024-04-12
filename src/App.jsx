@@ -1,5 +1,5 @@
 import './App.css'
-import { RouterProvider, createBrowserRouter, useNavigate } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import UserContext from './contexts/UserContext';
 import { useState } from 'react';
 import ProtectedRoute from './components/ProtectedRoute';
