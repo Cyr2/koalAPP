@@ -33,3 +33,13 @@ li{
     display: flex;
     
 }
+.imgProfile{
+    margin-left: 5px;
+    width: 50px;
+    height: 50px;
+    object-fit:cover;
+    border-radius: 50%;
+}
+.liUser{
+    width: 200px!important; 
+}
