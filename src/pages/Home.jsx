@@ -14,11 +14,11 @@ export default function Home() {
                     <h1>Accueil</h1>
                     <ul className='tableQuestion'>
                         {questions.map((question) => (
-                            <li key={question.id}>
+                            <li key={question.question_id}>
                                 <>
-                                    <h3>{question.author.name.charAt(0).toUpperCase() + question.author.name.slice(1)} demande</h3>
-                                    <p>{getChoice(question.choice)}</p>
-                                    <Link to={`/question/${question.id}`}><button>Voir Sondage</button></Link>
+                                    <h3>{question.author.charAt(0).toUpperCase() + question.author.slice(1)} demande</h3>
+                                    <p>{getChoice(question.choices)}</p>
+                                    <Link to={`/question/${question.question_id}`}><button>Voir Sondage</button></Link>
                                 </>
                             </li>
                         ))}
@@ -28,13 +28,13 @@ export default function Home() {
         }
     }, [isLoaded]);
 
-    function getChoice(question){
-        let title = `Tu préfères ${question[0].charAt(0).toUpperCase() + question[0].slice(1)}`
-        for(let i = 1; i<question.length; i++){
-            if(i === question.length - 1){
-                title += ` ou ${question[i].charAt(0).toUpperCase() + question[i].slice(1)} ?`
+    function getChoice(choices){
+        let title = `Tu préfères ${choices[0].charAt(0).toUpperCase() + choices[0].slice(1)}`
+        for(let i = 1; i<choices.length; i++){
+            if(i === choices.length - 1){
+                title += ` ou ${choices[i].charAt(0).toUpperCase() + choices[i].slice(1)} ?`
             } else {
-                title += `, ${question[i].charAt(0).toUpperCase() + question[i].slice(1)}`
+                title += `, ${choices[i].charAt(0).toUpperCase() + choices[i].slice(1)}`
             }
         }
         return title;

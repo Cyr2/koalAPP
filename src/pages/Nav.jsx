@@ -1,7 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import './Nav.css'
+import { useContext } from "react";
+import UserContext from '../contexts/UserContext';
 
 export default function Nav() {
+    const { user, setUser } = useContext(UserContext);
     return (
         <nav className='nav'>
             <ul>
@@ -10,7 +13,7 @@ export default function Nav() {
                 <NavLink to="/leaderboard"><li>Leader Board</li></NavLink>
             </ul>
             <ul className='ulUser'>
-                <li>Bonjour, utilisateur</li>
+                <li>Bonjour, {user.name}</li>
                 <NavLink to="/logout"><li>Déconnecter</li></NavLink>
             </ul>
         </nav>
