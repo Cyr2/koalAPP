@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, Link } from 'react-router-dom';
 import UserContext from '../contexts/UserContext';
+import './css/Login.css'
 
 export default function Login() {
     const { user, setUser } = useContext(UserContext);
@@ -52,15 +53,18 @@ export default function Login() {
     return (
         <div>
             <h1>Se connecter</h1>
-            <form onSubmit={handleLogin}>
-                <label>
-                    Email :
+            <form onSubmit={handleLogin} className="formLogin">
+                <div className="inputLogin">
+                    <div>
+                        <label>Email :</label>
                     <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-                </label>
-                <label>
-                    Mot de passe :
+                    </div>
+                    
+                    <div>
+                    <label>Mot de passe :</label>
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                </label>
+                    </div>
+                </div>
                 <input type="submit" value="Se connecter" />
             </form>
             <Link to="/register">Pas encore inscrit ?</Link>

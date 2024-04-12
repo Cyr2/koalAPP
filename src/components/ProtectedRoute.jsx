@@ -28,7 +28,8 @@ function ProtectedRoute({ children }) {
         }
         })
         .then(userData => {
-        setUser({ id: userData.id, name: userData.name });
+        setUser({ id: userData.id, name: userData.name, picture : userData.profile_picture});
+    console.log(userData)
         setIsAuthenticated(true);
         })
         .catch(error => {
@@ -40,7 +41,6 @@ function ProtectedRoute({ children }) {
     if (!isAuthenticated) {
         return null;
     }
-
     return children;
 }
 

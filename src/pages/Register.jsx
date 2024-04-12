@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate, Link } from 'react-router-dom';
 import UserContext from '../contexts/UserContext';
+import './css/Register.css'
 
 export default function Register() {
     const { setUser } = useContext(UserContext);
@@ -32,19 +33,23 @@ export default function Register() {
     return (
         <div>
             <h1>S'inscrire</h1>
-            <form onSubmit={handleRegister}>
-                <label>
-                    Nom d'utilisateur :
+            <form onSubmit={handleRegister} className="formRegister">
+            <div className="inputRegister">
+                <div>
+                    <label>Nom d'utilisateur :</label>
                     <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-                </label>
-                <label>
-                    Email :
+                </div> 
+
+                <div>
+                    <label>Email :</label>
                     <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-                </label>
-                <label>
-                    Mot de passe :
+                </div> 
+
+                <div>
+                    <label>Mot de passe :</label>
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                </label>
+                </div>   
+            </div> 
                 <input type="submit" value="S'inscrire" />
             </form>
             <Link to="/login">Déjà inscrit ? Se connecter</Link>
