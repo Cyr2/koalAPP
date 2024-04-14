@@ -16,5 +16,8 @@
   font-size: large;
   border : solid black 1px;
   padding: 3px;
-  margin : 5px 0;
+  margin : 10px 0;
+}
+.tableQuestion button{
+  margin: 7px 0;
 }
