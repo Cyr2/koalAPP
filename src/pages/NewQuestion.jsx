@@ -1,4 +1,4 @@
-import './NewQuestion.css'
+import './css/NewQuestion.css'
 import { useContext, useState } from "react";
 import UserContext from '../contexts/UserContext';
 
@@ -35,7 +35,7 @@ export default function NewQuestion() {
                 body: JSON.stringify({
                     question_id: parseInt(questionData.id),
                     choice: choice
-                }) 
+                })
             });
         }
     };
@@ -50,9 +50,9 @@ export default function NewQuestion() {
                 <p>tu préfère ?</p>
                 <form onSubmit={handleSubmit}>
                     {choices.map((choice, index) => (
-                        <input key={index} type="text" placeholder="Entrer le texte de l'option" value={choice} onChange={(event) => handleChoiceChange(index, event)}/>
+                        <input key={index} type="text" placeholder="Entrer le texte de l'option" value={choice} onChange={(event) => handleChoiceChange(index, event)} />
                     ))}
-                    <input type="submit" value="Valider" className='valider'/>
+                    <input type="submit" value="Valider" className='valider' />
                 </form>
             </div>
         </>
