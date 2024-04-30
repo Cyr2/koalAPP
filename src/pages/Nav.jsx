@@ -13,7 +13,7 @@ export default function Nav() {
                 <NavLink to="/leaderboard"><li>Leader Board</li></NavLink>
             </ul>
             <ul className='ulUser'>
-                <li className='liUser'>Bonjour, {user.name} <img src= {user.picture.url} alt= {user.picture.name} className='imgProfile'/></li>
+                <li className='liUser'>Bonjour, {user.name} {user.picture === null ? "" : <img src= {user.picture.url} alt= {user.picture.name} className='imgProfile'/>}</li>
                 <NavLink to="/logout"><li>Déconnecter</li></NavLink>
             </ul>
         </nav>
