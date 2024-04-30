@@ -1,22 +1,26 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import UserContext from '../contexts/UserContext';
 import { useFetch } from '../hooks/useFetch';
 import './css/Question.css'
 
 export default function Question() {
     const url = window.location.pathname.split('/')[2];
+    const { user, setUser } = useContext(UserContext);
     const [questions, isLoaded] = useFetch();
     const [renderList, setRenderList] = useState(<div>Loading...</div>);
     let answers;
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        // const answerData = {
-        //     user_id,
-        //     answer_id,
-        //     question_id: parseInt(url),
-        // };
+        const answerData = {
+            user_id: user.id,
+            answer_id: "",
+            question_id: parseInt(url),
+        };
 
-        console.log(answers);
+        // RECUPERER L'ID DE L'ANSWER
+
+        console.log();
     }
 
     useEffect(() => {
@@ -24,6 +28,7 @@ export default function Question() {
             questions.map((questions) => {
                 if (questions.question_id === parseInt(url)) {
                     answers = questions.choices;
+                    console.log(questions);
                     setRenderList(
                         <div className='formQuestion'>
                             <h2>{questions.author} demande</h2>

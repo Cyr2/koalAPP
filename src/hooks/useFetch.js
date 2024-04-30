@@ -17,7 +17,8 @@ export function useFetch(){
                     if (questionIndex > -1) {
                         acc[questionIndex].choices.push(current.choice);
                     } else {
-                        acc.push({ question_id: current.question_id, choices: [current.choice] });
+                        acc.push({ question_id: current.question_id, choices: [current.choice], id: current.id});
+                        // ON A ADD LE id: current.id MAIS PAS SUR QUE CA MARCHE ;)
                     }
                     return acc;
                 }, []);
