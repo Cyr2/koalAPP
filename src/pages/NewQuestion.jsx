@@ -1,8 +1,10 @@
 import './css/NewQuestion.css'
 import { useContext, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import UserContext from '../contexts/UserContext';
 
 export default function NewQuestion() {
+    const navigate = useNavigate();
     const { user, setUser } = useContext(UserContext);
     const [choices, setChoices] = useState(['', '']);
 
@@ -26,21 +28,20 @@ export default function NewQuestion() {
         });
         const questionData = await questionResponse.json();
         for (let choice of choices) {
-            console.log(questionData.id);
             await fetch('https://x8ki-letl-twmt.n7.xano.io/api:bTJXwgaR/answer', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    question_id: parseInt(questionData.id),
-                    choice: choice
+                    choice: choice,
+                    question_id: questionData.result1.id
                 })
             });
-        }
-    };
+        };
 
-    // LE CHOICE EST BIEN POST MAIS PAS L'ID, IL GARDE TOUJOURS LE #1 !!!
+        navigate('/');
+    };
 
     return (
         <>
