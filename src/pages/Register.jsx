@@ -22,7 +22,7 @@ export default function Register() {
                 name: username,
                 email: email,
                 password: password,
-                image: 'https://www.gravatar.com/avatar/'
+                profile_picture: null
             }),
         });
         if(response.ok) {

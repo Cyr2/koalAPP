@@ -1,19 +1,17 @@
 import { useState, useEffect, useContext } from 'react';
-import UserContext from '../contexts/UserContext';
 
-export function useFetchUserAnswer(){
+export function useFetchQuestionAnswer(question_Id){
     const [isLoading, setIsLoading] = useState(true);
-    const [userAnswer, setUserAnswer] = useState([]);
-    const { user, setUser } = useContext(UserContext);
+    const [questionAnswer, setQuestionAnswer] = useState([]);
     const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`https://x8ki-letl-twmt.n7.xano.io/api:bTJXwgaR/userAnswer/${user.id}`);
+                const response = await fetch(`https://x8ki-letl-twmt.n7.xano.io/api:bTJXwgaR/questionAnswer/${question_Id}`);
                 const data = await response.json();
                 
-                setUserAnswer(data);
+                setQuestionAnswer(data);
                 setIsLoading(false);
             } catch (error) {
                 setError(error)
@@ -21,6 +19,6 @@ export function useFetchUserAnswer(){
         };
         
         fetchData();
-    }, []);
-    return [userAnswer, isLoading, error]
+    }, [question_Id]);
+    return [questionAnswer, isLoading, error]
 }

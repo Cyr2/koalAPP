@@ -10,7 +10,6 @@ export default function Nav() {
             <ul>
                 <NavLink to="/"><li>Accueil</li></NavLink>
                 <NavLink to="/add"><li>Nouvelle question</li></NavLink>
-                <NavLink to="/leaderboard"><li>Leader Board</li></NavLink>
             </ul>
             <ul className='ulUser'>
                 <li className='liUser'>Bonjour, {user.name} {user.picture === null ? "" : <img src= {user.picture.url} alt= {user.picture.name} className='imgProfile'/>}</li>
